@@ -18,3 +18,8 @@ Route::get('/', 'PagesController@home');
 Route::get('/about', 'PagesController@about');
 Route::get('/contact', 'PagesController@contact');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');

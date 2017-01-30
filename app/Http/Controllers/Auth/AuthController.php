@@ -36,10 +36,10 @@ class AuthController extends Controller
         if (!is_null($user)) {
             Auth::login($user);
             $user->name = $data->user['name'];
-            $user->facebook_id = $data->id;
+            $user->facebook_id = $data->user['id'];
             $user->save();
         } else {
-            $user = User::where('facebook_id', $data->id)->first();
+            $user = User::where('facebook_id', $data->user['id'])->first();
             if (is_null($user)) {
                 // Create a new user
                 $user = new User();
