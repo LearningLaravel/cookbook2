@@ -7,17 +7,16 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class ExampleTest extends TestCase
+class BlogTest extends TestCase
 {
     /**
      * A basic test example.
      *
      * @return void
      */
-    public function testBasicTest()
+    public function testBlogResponseIsValid()
     {
-        $response = $this->get('/blog');
-
+        $response = $this->get('/json');
         $response->assertStatus(200);
     }
 }
