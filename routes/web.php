@@ -23,5 +23,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
-
 Route::post('upload', 'ImagesController@store');
+Route::get('/blog', 'BlogController@index');
