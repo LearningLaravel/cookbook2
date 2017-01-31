@@ -22,6 +22,9 @@
                 </div>
             @endforeach
         @endif
+
+        {!! $posts->render() !!}
+
     </div>
 
 @endsection

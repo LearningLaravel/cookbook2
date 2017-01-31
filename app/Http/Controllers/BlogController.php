@@ -9,7 +9,7 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::paginate(10);
         return view('blog.index', compact('posts'));
     }
 }
