@@ -9,7 +9,7 @@ class PagesController extends Controller
 {
     public function home()
     {
-        Alert::error('There is an error', 'Error')->autoclose(2000);
+        // Alert::error('There is an error', 'Error')->autoclose(2000);
         return view('home');
     }
 
