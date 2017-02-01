@@ -18,3 +18,36 @@ Ladda.bind('.ladda-button', {
         }, 200);
     }
 });
+
+$(document).ready(function () {
+
+    var form = $('#registration');
+
+    form.submit(function (e) {
+        e.preventDefault();
+
+        $.ajax({
+            url: form.attr('action'),
+            type: "POST",
+            data: form.serialize(),
+            dataType: "json"
+        })
+            .done(function (response) {
+                if (response.success) {
+                    swal({
+                        title: "Hi " + response.name,
+                        text: response.success,
+                        timer: 2000,
+                        showConfirmButton: false,
+                        type: "success"
+                    });
+                    window.location.replace(response.url);
+                } else {
+                    swal("Oops!", response.errors, 'error');
+                }
+            })
+            .fail(function () {
+                swal("Fail!", "Cannot register now!", 'error');
+            });
+    });
+});

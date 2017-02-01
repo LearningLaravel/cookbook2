@@ -29,3 +29,6 @@ Route::get('/blog', 'BlogController@index');
 Route::get('json', function () {
     return App\Post::paginate();
 });
+
+Route::get('users/register', 'Auth\AuthController@getRegister');
+Route::post('users/register', 'Auth\AuthController@postRegister');
