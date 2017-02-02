@@ -7,6 +7,7 @@ use App\Http\Requests\ImageFormRequest;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Response;
+use Alert;
 
 class ImagesController extends Controller
 {
@@ -63,6 +64,46 @@ class ImagesController extends Controller
                 );
                 return Response::json($json, 202);
             }
+        }
+    }
+
+    public function storeCroppedImage()
+    {
+        $files = Input::all();
+
+        if ($files['cropped-image'] != "") {
+
+            $file = $files['cropped-image'];
+
+            $destination = 'images';
+            $filename = 'testimage';
+            $extension = 'png';
+            $fullName = $filename . '.' . $extension;
+
+            $image = Image::make($file)->encode('png')->save($destination . '/' . $fullName);
+
+            Alert::success('Image has been cropped successfully!', 'Success!')->autoclose(2000);
+
+            return redirect('/contact');
+
+        } else if(isset($files['uploaded-image']) ) {
+
+            $file = $files['uploaded-image'];
+            $destination = 'images';
+            $filename = 'testimage';
+            $extension = 'png';
+            $fullName = $filename . '.' . $extension;
+            $image = Image::make($file)->encode('png')->save($destination . '/' . $fullName);
+
+            Alert::success('Image has been uploaded successfully!', 'Success!')->autoclose(2000);
+
+            return redirect('/contact');
+
+        } else {
+
+            Alert::error('There is an error', 'Error')->autoclose(2000);
+
+            return redirect('/contact');
         }
     }
 

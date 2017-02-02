@@ -5,10 +5,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="/css/ladda.min.css">
     <link rel="stylesheet" href="/css/sweetalert.css">
+    <link rel="stylesheet" href="/css/cropper.min.css">
     <link rel="stylesheet" href="/css/app.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
 
     <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+
+    <script src="/js/cropper.min.js"></script>
+    <script src="/js/crop.js"></script>
+
     <!-- The Load Image plugin is included for the preview images and image resizing functionality -->
     <script src="//blueimp.github.io/JavaScript-Load-Image/js/load-image.all.min.js"></script>
     <!-- The Canvas to Blob plugin is included for image resizing functionality -->

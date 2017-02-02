@@ -37,3 +37,4 @@ Route::get('users/login', 'Auth\AuthController@getLogin');
 Route::post('users/login', 'Auth\AuthController@postLogin');
 
 Route::post('imageupload', 'ImagesController@storeImage');
+Route::post('cropimage', 'ImagesController@storeCroppedImage');
